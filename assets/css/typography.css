@@ -1,0 +1,30 @@
+:root{
+  --font-display:'Outfit', system-ui, sans-serif;
+  --font-body:'Geist', system-ui, sans-serif;
+  --font-mono:ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Solo dos pesos activos + medium para labels */
+  --weight-black:900;
+  --weight-medium:600;
+  --weight-regular:400;
+
+  --tracking-display:-0.01em;
+  --leading-display:1.02;
+  --leading-body:1.5;
+
+  /* Escala web / producto */
+  --text-display:64px;
+  --text-h1:48px;
+  --text-h2:32px;
+  --text-h3:22px;
+  --text-sub:17px;
+  --text-body:16px;
+  --text-caption:13px;
+
+  /* Escala de presentación (lienzo 1920×1080) */
+  --slide-display:96px;
+  --slide-h1:64px;
+  --slide-h2:40px;
+  --slide-body:22px;
+  --slide-caption:14px;
+}

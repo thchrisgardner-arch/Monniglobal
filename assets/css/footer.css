@@ -1,0 +1,33 @@
+/* Footer compartido (home V2 y páginas internas). Autocontenido: solo usa los tokens oficiales
+   (fonts/colors/spacing), así funciona igual con v2.css o con home.css. Marcado en partials/footer.html. */
+.ftr{
+  --fg:#FFFFFF; --mute:rgba(255,255,255,.6); --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.4); --focus:var(--monni-lima);
+  --ftr-gx:clamp(48px,5vw,88px); --ftr-t:.16s;
+  position:relative; background:var(--paint,#000); color:var(--fg); border:0;
+  padding:var(--space-88) 0 var(--space-48); font-family:var(--font-body); font-size:16px; line-height:1.5;
+}
+.ftr-wrap{ width:100%; max-width:calc(1312px + var(--ftr-gx)*2); margin:0 auto; padding:0 var(--ftr-gx); }
+.ftr a{ color:inherit; text-decoration:none; }
+.ftr a:focus-visible{ outline:2px solid var(--focus); outline-offset:3px; border-radius:6px; }
+.ftr img,.ftr svg{ display:block; max-width:100%; }
+
+.ftr-top{ display:flex; align-items:flex-end; gap:var(--space-48); padding-bottom:var(--space-48); border-bottom:1px solid var(--line); }
+.ftr-mark{ width:clamp(280px,26vw,400px); height:auto; aspect-ratio:3.1; object-fit:cover; object-position:50% 51%; margin-left:calc(clamp(280px,26vw,400px) * -.13); margin-bottom:-.6%; }
+.ftr-apps{ margin-left:auto; display:flex; gap:var(--space-12); padding-bottom:6px; }
+.ftr-apps a{ display:block; border-radius:8px; transition:opacity var(--ftr-t) ease; }
+.ftr-apps a:hover{ opacity:.8; }
+.ftr-apps img{ height:48px; width:auto; }
+
+.ftr-cols{ display:grid; grid-template-columns:1fr 1fr 1fr 1.5fr .9fr; gap:24px; padding:var(--space-48) 0 var(--space-64); }
+.ftr h4{ font:600 12px var(--font-body); letter-spacing:.09em; text-transform:uppercase; color:var(--mute); margin:0 0 var(--space-16); }
+.ftr-cols nav a{ display:block; width:fit-content; padding:6px 0; font-size:14.5px; color:rgba(255,255,255,.86); transition:opacity var(--ftr-t) ease; }
+.ftr-cols nav a:hover{ opacity:.6; }
+.ftr-side p{ font-size:14.5px; margin:0 0 var(--space-32); }
+.ftr-soc{ display:flex; gap:var(--space-8); }
+.ftr-soc a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--line-strong); display:grid; place-items:center; color:#fff; transition:border-color var(--ftr-t) ease; }
+.ftr-soc a:hover{ border-color:var(--monni-lima); }
+.ftr-soc img{ filter:invert(1); }
+
+.ftr-legal{ border-top:1px solid var(--line); padding-top:var(--space-32); font-size:12px; line-height:1.65; color:var(--mute); text-align:center; }
+.ftr-legal p{ max-width:1040px; margin:0 auto; }
+.ftr-legal p+p{ margin-top:var(--space-12); }

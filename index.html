@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monni — Tu dinero, sin fronteras</title>
+<meta name="description" content="Cuenta global en pesos, dólares y euros, tarjeta débito que paga con tu saldo y cambio a la tasa real. Monni está en etapa previa al lanzamiento: únete a la lista de espera.">
+<link rel="canonical" href="https://www.monni.global/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Monni">
+<meta property="og:title" content="Monni — Tu dinero, sin fronteras">
+<meta property="og:description" content="Cuenta global en COP, USD y EUR, tarjeta débito y cambio a la tasa real.">
+<meta property="og:url" content="https://www.monni.global/">
+<meta property="og:locale" content="es_CO">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/img/cards/web/debito-verde.webp">
+<link rel="stylesheet" href="assets/css/v2.css">
+<script>
+  // Oculta lo que anima la entrada solo si hay movimiento; si GSAP no llega en 2,5 s, el contenido se muestra igual.
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ document.documentElement.classList.add('js-motion'); setTimeout(function(){ if(!window.gsap) document.documentElement.classList.remove('js-motion'); },2500); }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- Set de iconos Monni: caja 24, trazo 1.75, remates redondeados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/></symbol>
+    <symbol id="i-receive" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 20V9M7 13.5l5-5 5 5M5 4h14"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M3 10h18M7 14.5h4"/></symbol>
+    <symbol id="i-freeze" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></symbol>
+    <symbol id="i-limits" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+    <symbol id="i-single" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M3 10h18"/><path d="m9.5 14.5 1.8 1.8 3.4-3.6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.5 1.5H5z"/><path d="M10 20.5h4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="3"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5M12 14.5v2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 4 8.5 4.5L12 13 3.5 8.5z"/><path d="m3.5 12.5 8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5"/></symbol>
+    <symbol id="i-finger" viewBox="0 0 24 24"><path d="M7.5 18.5c.9-1.9 1.3-4 1.3-6.5a3.2 3.2 0 0 1 6.4 0c0 1.3-.1 2.6-.3 3.8M12 12c0 3.2-.6 6-1.9 8.4M5.5 14.5c.2-.8.3-1.6.3-2.5a6.2 6.2 0 0 1 11.2-3.7M18 11.5c.1 2.5-.2 4.8-.9 7"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3.5 12h4l2-5 4 10 2-5h5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 5 5.5z"/><path d="M8 10h8M8 13h5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.3a10 10 0 0 0 5.7 5.7L16 13l4 1.5v3A2 2 0 0 1 18 19.5 15.5 15.5 0 0 1 4.5 6 2 2 0 0 1 6.5 4z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H17v3"/><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M15.5 13.5h1.5"/></symbol>
+    <symbol id="i-nocheck" viewBox="0 0 24 24"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4"/><path d="m10 12 4 4M14 12l-4 4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  </defs>
+</svg>
+
+<!-- 01 HEADER -->
+<header class="hdr" id="hdr" data-tone="ink">
+  <div class="wrap hdr-in">
+    <a class="logo" href="index.html" aria-label="Monni, inicio"><img src="assets/logo/logo-white-transparent.png" alt="" width="1024" height="1024"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="cuenta.html">Cuenta global</a>
+      <a href="tarjeta.html">Tarjeta</a>
+      <a href="transferencias.html">Transferencias</a>
+      <a href="#planes">Planes</a>
+      <a href="ayuda.html">Ayuda</a>
+    </nav>
+    <div class="hdr-r">
+      <a class="hdr-link" href="empresas.html">Empresas</a>
+      <a class="btn btn-primary btn-sm" href="https://www.monni.global/#lista-espera">Unirme a la lista</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 02 HERO + 03 PROPUESTA: un mismo recorrido (ink → gris) -->
+<section class="hero" id="top" data-tone="ink" aria-labelledby="heroH">
+  <div class="wrap grid hero-grid">
+    <div class="hero-copy">
+      <h1 id="heroH"><span class="line"><span data-hero-line>Tu dinero,</span></span><span class="line"><span data-hero-line>sin fronteras.</span></span></h1>
+      <p class="lead" data-hero>Una forma más inteligente de recibir, pagar y administrar tu dinero. Todo en un solo lugar con Monni.</p>
+      <div class="cta-row" data-hero>
+        <a class="btn btn-primary" href="https://www.monni.global/#lista-espera">Unirme a la lista de espera <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-quiet" href="#planes">Ver planes</a>
+      </div>
+      <p class="caption" data-hero>Monni está en etapa previa al lanzamiento.</p>
+    </div>
+
+    <div class="hero-stage" aria-hidden="true">
+      <img class="hero-scene" src="assets/img/scenes/hero-stage-ink.webp" alt="" width="1400" height="1400" fetchpriority="high" decoding="async">
+      <div class="hero-phone" data-depth="0.35">
+        <div class="device">
+          <div class="screen">
+            <div class="ui-top"><span class="ui-lbl">Tus saldos</span><span class="ui-tag">Ilustrativo</span></div>
+            <div class="ui-row"><span class="flag f-co"></span><span>Pesos</span><b>$2.500.000</b></div>
+            <div class="ui-row"><span class="flag f-us"></span><span>Dólares</span><b>US$640</b></div>
+            <div class="ui-row"><span class="flag f-eu"></span><span>Euros</span><b>€210</b></div>
+            <div class="ui-actions"><span><svg class="ic"><use href="#i-receive"/></svg>Recibir</span><span><svg class="ic"><use href="#i-swap"/></svg>Cambiar</span><span><svg class="ic"><use href="#i-send"/></svg>Enviar</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card" data-depth="0.6">
+        <div class="card-3d"><img src="assets/img/cards/web/debito-verde.webp" alt="" width="1200" height="758" fetchpriority="high"></div>
+        <div class="card-shadow"></div>
+      </div>
+      <ul class="hero-chips">
+        <li data-depth="0.9">COP</li><li data-depth="0.5">USD</li><li data-depth="0.75">EUR</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="value" id="propuesta" data-tone="gris" aria-labelledby="valueH">
+  <div class="wrap">
+    <h2 class="value-words" id="valueH">
+      <span class="vw"><span data-vw>Recibe.</span></span>
+      <span class="vw"><span data-vw>Cambia.</span></span>
+      <span class="vw"><span data-vw>Paga.</span></span>
+    </h2>
+    <div class="grid value-foot">
+      <p class="lead value-lead" data-reveal>Una cuenta con saldos en pesos, dólares y euros. Una tarjeta débito que paga con lo que ya tienes. Y el cambio entre monedas a la tasa real, sin comisión de Monni.</p>
+      <ol class="value-map" data-reveal>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-receive"/></svg><b>Recibe</b><span>pagos del exterior en tu cuenta global.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-swap"/></svg><b>Cambia</b><span>entre COP, USD y EUR cuando lo necesites.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-card"/></svg><b>Paga</b><span>en tienda y en línea con tu saldo.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 04 CUENTA GLOBAL: composición fija + secuencia de contenido -->
+<section class="account" id="cuenta" data-tone="gris" aria-labelledby="accH">
+  <div class="wrap grid account-grid">
+    <div class="account-steps">
+      <header class="sec-head">
+        <h2 id="accH">Una cuenta.<br>Tres monedas.</h2>
+      </header>
+      <article class="step is-on" data-step="0">
+        <span class="step-n">01</span>
+        <h3>Pesos, dólares y euros a la vez.</h3>
+        <p>Ten saldos en COP, USD y EUR al mismo tiempo, desde una sola cuenta en el celular.</p>
+      </article>
+      <article class="step" data-step="1">
+        <span class="step-n">02</span>
+        <h3>Recibe pagos del exterior.</h3>
+        <p>Recibe tu primer pago del exterior y cámbialo a la tasa real. Sin filas y sin papeleo.</p>
+      </article>
+      <article class="step" data-step="2">
+        <span class="step-n">03</span>
+        <h3>Cambia a la tasa real.</h3>
+        <p>Todos los planes cambian con la tasa real del mercado y sin comisión de Monni por divisas.</p>
+      </article>
+      <article class="step" data-step="3">
+        <span class="step-n">04</span>
+        <h3>Sin cuota de manejo en Start.</h3>
+        <p>La cuenta Start es gratuita e incluye tu tarjeta débito virtual.</p>
+        <a class="link" href="cuenta.html">Conoce la cuenta global <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+
+    <div class="account-sticky" aria-hidden="true">
+      <div class="device device-lg">
+        <div class="screen" id="accScreen">
+          <div class="scr is-on" data-scr="0">
+            <span class="ui-lbl">Tus monedas</span>
+            <div class="ui-big">3 saldos</div>
+            <div class="ui-row"><span class="flag f-co"></span><span>Pesos · COP</span><b>$2.500.000</b></div>
+            <div class="ui-row"><span class="flag f-us"></span><span>Dólares · USD</span><b>US$640</b></div>
+            <div class="ui-row"><span class="flag f-eu"></span><span>Euros · EUR</span><b>€210</b></div>
+          </div>
+          <div class="scr" data-scr="1">
+            <span class="ui-lbl">Movimientos · Hoy</span>
+            <div class="ui-big">US$890</div>
+            <div class="ui-note"><span class="ui-ico"><svg class="ic"><use href="#i-receive"/></svg></span><div><b>Pago recibido</b><small>Del exterior · USD</small></div><em>+US$250</em></div>
+            <div class="ui-row"><span class="flag f-us"></span><span>Saldo en dólares</span><b>US$890</b></div>
+          </div>
+          <div class="scr" data-scr="2">
+            <span class="ui-lbl">Cambiar moneda</span>
+            <div class="ui-field"><small>De · USD</small><b>US$100</b></div>
+            <div class="ui-swap"><svg class="ic"><use href="#i-swap"/></svg></div>
+            <div class="ui-field ui-field-res"><small>A · EUR</small><b>Ves el importe exacto antes de confirmar</b></div>
+            <div class="ui-meta"><span>Tasa</span><b>Real del mercado</b></div>
+            <div class="ui-meta"><span>Comisión de Monni</span><b>0%</b></div>
+          </div>
+          <div class="scr" data-scr="3">
+            <span class="ui-lbl">Tu plan</span>
+            <div class="ui-big">Start</div>
+            <div class="ui-meta"><span>Cuota de manejo</span><b>Gratis</b></div>
+            <div class="ui-meta"><span>Tarjeta débito virtual</span><b>Incluida</b></div>
+            <div class="ui-meta"><span>Cuenta en USD, EUR y COP</span><b>Incluida</b></div>
+          </div>
+          <div class="ui-dots" id="accDots"><i class="is-on"></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <p class="caption device-note">Interfaz demostrativa. Los valores son ilustrativos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TRANSFERENCIAS Y MOVIMIENTO DEL DINERO -->
+<section class="move" id="transferencias" data-tone="white" aria-labelledby="moveH">
+  <div class="wrap">
+    <header class="grid move-head">
+      <div class="move-title">
+        <h2 id="moveH">Tu dinero entra, cambia y sale. Siempre a la vista.</h2>
+      </div>
+      <p class="lead move-lead">La mayoría de transferencias llegan en minutos. El tiempo exacto depende del país y la red de pago.</p>
+    </header>
+
+    <div class="grid move-cards">
+      <article class="scene scene-a" data-scene>
+        <figure class="scene-img">
+          <img src="assets/img/scenes/recibe-medellin.webp" alt="Hombre celebrando mientras mira su teléfono en un apartamento con vista a la ciudad" width="1100" height="1473" loading="lazy" decoding="async">
+          <div class="float-ui" aria-hidden="true"><span class="ui-ico"><svg class="ic"><use href="#i-receive"/></svg></span><div><b>Dinero recibido</b><small>Ejemplo ilustrativo</small></div></div>
+        </figure>
+        <h3><span class="step-n">01</span>Recibe</h3>
+        <p>Pagos del exterior directo a tu cuenta global.</p>
+      </article>
+      <article class="scene scene-b" data-scene>
+        <figure class="scene-img">
+          <img src="assets/img/xf-conversion.webp" alt="Mujer en una terraza mirando su teléfono" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="float-ui float-rows" aria-hidden="true"><div><span>Tasa</span><b>Real del mercado</b></div><div><span>Comisión de Monni</span><b>0%</b></div></div>
+        </figure>
+        <h3><span class="step-n">02</span>Cambia</h3>
+        <p>Entre pesos, dólares y euros, viendo el importe antes de confirmar.</p>
+      </article>
+      <article class="scene scene-c" data-scene>
+        <figure class="scene-img">
+          <img src="assets/img/tr-bogota.webp" alt="Mujer revisando su teléfono en una calle de Colombia" width="1100" height="1467" loading="lazy" decoding="async">
+          <div class="float-ui" aria-hidden="true"><span class="ui-ico"><svg class="ic"><use href="#i-send"/></svg></span><div><b>Envía o paga</b><small>Desde tu saldo</small></div></div>
+        </figure>
+        <h3><span class="step-n">03</span>Mueve</h3>
+        <p>Envía al exterior o paga con tu tarjeta en la moneda que elijas.</p>
+      </article>
+    </div>
+
+    <ul class="facts">
+      <li>Transferencias internacionales sin comisión desde el plan Premium. Plus incluye 2 al mes.</li>
+      <li>Cambio de divisas sin comisión de Monni, en todos los planes.</li>
+      <li>Los bancos intermediarios pueden aplicar costos ajenos a Monni.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 06 TARJETA MONNI (white → ink) + 07 CONTROL: un capítulo oscuro -->
+<section class="card-sec" id="tarjeta" data-tone="ink" aria-labelledby="cardH">
+  <div class="wrap">
+    <header class="grid card-head">
+      <h2 id="cardH">Paga con tu saldo, en cualquier moneda.</h2>
+      <p class="lead">La tarjeta débito Monni gasta el dinero que ya tienes. En pesos, dólares o euros, a la tasa real, en tienda y en línea.</p>
+    </header>
+    <div class="grid card-body">
+      <figure class="card-figure">
+        <img src="assets/img/brand/lifestyle-tarjeta-lima.webp" alt="Mujer sonriendo con la tarjeta débito Monni en la mano" width="675" height="1200" loading="lazy" decoding="async">
+      </figure>
+      <div class="card-feats">
+        <ul class="feat-list">
+          <li><span class="feat-ic"><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg></span><div><h3>Se descuenta de tu saldo</h3><p>Cada compra sale del dinero que ya tienes en Monni. No es un cupo ni una deuda.</p></div></li>
+          <li><span class="feat-ic"><svg class="ic" aria-hidden="true"><use href="#i-swap"/></svg></span><div><h3>Sin comisión de Monni</h3><p>No cobramos margen por cambio de moneda, ni en Colombia ni en el exterior.</p></div></li>
+          <li><span class="feat-ic"><svg class="ic" aria-hidden="true"><use href="#i-nocheck"/></svg></span><div><h3>Sin consulta de crédito</h3><p>Pedirla no genera reportes ni consultas en centrales de riesgo.</p></div></li>
+          <li><span class="feat-ic"><svg class="ic" aria-hidden="true"><use href="#i-card"/></svg></span><div><h3>Virtual para empezar</h3><p>La virtual viene con la cuenta. La física la pides desde la app cuando pasas a un plan de pago.</p></div></li>
+        </ul>
+        <a class="btn btn-outline" href="tarjeta.html">Conoce la tarjeta <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap control" id="beneficios">
+    <header class="control-head">
+      <h2>Tú decides cuándo y cuánto se gasta.</h2>
+    </header>
+    <div class="grid bento">
+      <article class="bx b-freeze" data-reveal>
+        <div class="b-txt">
+          <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-freeze"/></svg></span>
+          <h3>Congélala con un tap.</h3>
+          <p>Si la pierdes o no la vas a usar, la bloqueas y la reactivas desde la app.</p>
+        </div>
+        <div class="b-ui" id="freezeUi" aria-hidden="true">
+          <div class="b-ui-card"><img src="assets/img/cards/web/debito-verde.webp" alt="" width="1200" height="758" loading="lazy" decoding="async"><span class="b-ui-lock"><svg class="ic"><use href="#i-freeze"/></svg></span></div>
+          <div class="ui-switch-row"><span>Estado</span><b class="b-ui-state"><span class="st-on">Activa</span><span class="st-off">Congelada</span></b></div>
+          <div class="ui-switch-row"><span>Congelar tarjeta</span><span class="switch" id="freezeSwitch"><i></i></span></div>
+        </div>
+      </article>
+      <article class="bx b-small" data-reveal>
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-limits"/></svg></span>
+        <h3>Límites de gasto.</h3>
+        <p>Defines cuánto puede salir por compra, por día o en el exterior.</p>
+      </article>
+      <article class="bx b-small" data-reveal>
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-single"/></svg></span>
+        <h3>Tarjetas de un solo uso.</h3>
+        <p>Creas una virtual para una compra o suscripción. Al usarla, se desactiva sola.</p>
+      </article>
+      <article class="bx b-wide" data-reveal>
+        <div>
+          <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></span>
+          <h3>Alertas al momento.</h3>
+          <p>Cada pago llega como notificación, con la categoría y la moneda.</p>
+        </div>
+        <div>
+          <span class="tile tile-line"><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <h3>Apple Pay y Google Pay.</h3>
+          <p>Agrega la virtual a tu billetera y paga sin contacto.</p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 07b TARJETA DE CRÉDITO: sección a sangre (foto con render oficial compuesto) -->
+<section class="credit" id="credito" data-tone="lima" data-tone-hex="#BAF723" aria-labelledby="creditH">
+  <img class="credit-photo" src="assets/img/scenes/credito-lima.webp" alt="Mujer sosteniendo la tarjeta de crédito Monni frente a su ojo" width="1800" height="1018" loading="lazy" decoding="async">
+  <div class="wrap credit-inner">
+    <div class="credit-copy">
+        <span class="credit-pill">Disponible desde julio de 2027</span>
+        <h2 id="creditH">Tarjeta de crédito Monni.<br>Paga en 4, sin intereses.</h2>
+        <p>Elige cómo pagar cada compra: en 4 cuotas, de una vez o a plazos. Todavía no está abierta: únete a la lista de espera y te avisamos cuando puedas solicitarla.</p>
+        <div class="cta-row">
+          <a class="btn btn-ink" href="https://www.monni.global/#lista-espera">Unirme a la lista de espera <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="link" href="https://www.monni.global/tarjeta-credito">Conoce la tarjeta</a>
+        </div>
+      </div>
+    <p class="credit-legal">Sujeta a evaluación crediticia. Paga en 4 aplica para compras desde $120.000 y se activa dentro de las 12 horas siguientes a la compra. Aplican términos y condiciones.</p>
+  </div>
+</section>
+
+<!-- 08 PLANES -->
+<section class="plans" id="planes" data-tone="white" aria-labelledby="plansH">
+  <div class="wrap">
+    <header class="grid plans-head">
+      <div>
+        <h2 id="plansH">Elige los beneficios que van contigo.</h2>
+      </div>
+      <p class="lead">Todos los planes incluyen tu cuenta en USD, EUR y COP con la tasa real.</p>
+    </header>
+    <div class="grid plan-grid">
+      <article class="plan" data-plan>
+        <h3>Start</h3>
+        <p class="plan-price">Gratis</p>
+        <ul><li>Cuenta en USD, EUR y COP</li><li>Tarjeta débito virtual gratuita</li><li>Sin comisión de Monni por cambio de divisas</li></ul>
+      </article>
+      <article class="plan" data-plan>
+        <h3>Plus</h3>
+        <p class="plan-price">$19.900<small> al mes</small></p>
+        <p class="plan-note">Primer mes gratis.</p>
+        <ul><li>0,5% de cashback en compras débito</li><li>Tarjeta física incluida</li><li>2 transferencias internacionales sin comisión al mes</li></ul>
+      </article>
+      <article class="plan plan-hi" data-plan>
+        <h3>Premium</h3>
+        <p class="plan-price">$39.900<small> al mes</small></p>
+        <ul><li>1% de cashback en compras débito</li><li>Transferencias internacionales sin comisión</li><li>Cobertura médica en viajes al exterior</li></ul>
+      </article>
+      <article class="plan" data-plan>
+        <h3>Platinum</h3>
+        <p class="plan-price">$79.900<small> al mes</small></p>
+        <ul><li>2% de cashback en compras débito</li><li>Tarjeta metálica</li><li>Acceso ilimitado a salas VIP de aeropuerto</li></ul>
+      </article>
+    </div>
+    <div class="plans-foot">
+      <p class="caption">Cada plan incluye todo lo del anterior. Precios en pesos colombianos. Los seguros y coberturas están sujetos a términos, condiciones y exclusiones de cada póliza.</p>
+      <a class="link" href="https://www.monni.global/billetera">Compara cada detalle <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 09 CONFIANZA Y ATENCIÓN -->
+<section class="trust" id="seguridad" data-tone="gris" aria-labelledby="trustH">
+  <div class="wrap grid trust-grid">
+    <div class="trust-copy">
+      <h2 id="trustH">Tu dinero y tus datos, en capas.</h2>
+      <ul class="layers-list">
+        <li data-layer><span class="tile tile-ink"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></span><div><b>Encriptación</b><p>Tus datos se protegen con encriptación de nivel bancario.</p></div></li>
+        <li data-layer><span class="tile tile-ink"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><div><b>Verificación en múltiples capas</b><p>Verificas tu identidad desde el celular al abrir tu cuenta.</p></div></li>
+        <li data-layer><span class="tile tile-ink"><svg class="ic" aria-hidden="true"><use href="#i-finger"/></svg></span><div><b>Acceso biométrico</b><p>Tu app se abre solo contigo.</p></div></li>
+        <li data-layer><span class="tile tile-ink"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg></span><div><b>Monitoreo en tiempo real</b><p>Cada transacción se monitorea al momento.</p></div></li>
+      </ul>
+    </div>
+    <aside class="support" data-reveal aria-labelledby="supH">
+      <h3 id="supH">Te responde una persona, no un call center.</h3>
+      <p>Tu Personal Banker te atiende desde el chat de la app.</p>
+      <ul class="support-list">
+        <li><span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span><div><b>Chat en la app</b><small>La forma más rápida de recibir soporte.</small></div></li>
+        <li><span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span><div><b><a href="tel:+573019792712">+57 301 979 2712</a></b><small>Lunes a viernes, 8:00 a. m. a 6:00 p. m.</small></div></li>
+      </ul>
+      <a class="btn btn-outline" href="ayuda.html">Ir al centro de ayuda <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </aside>
+  </div>
+</section>
+
+<!-- 10 PREGUNTAS FRECUENTES -->
+<section class="faq" id="faq" data-tone="white" aria-labelledby="faqH">
+  <div class="wrap grid faq-grid">
+    <header class="faq-head">
+      <h2 id="faqH">Resolvemos tus dudas.</h2>
+      <p class="lead">Si necesitas algo más, el centro de ayuda tiene cada tema.</p>
+      <a class="link" href="ayuda.html">Centro de ayuda <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </header>
+    <div class="acc" id="faqList">
+      <div class="acc-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="fa1" id="fq1">¿Qué es Monni y cómo se compara con un banco tradicional?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="acc-panel" id="fa1" role="region" aria-labelledby="fq1"><div><p>Monni es tu centro financiero global: una cuenta multidivisa para enviar, recibir y gastar dinero sin fronteras. A diferencia de un banco tradicional, operas con tasas transparentes, sin filas ni procesos lentos.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="fa2" id="fq2">¿Cuándo puedo abrir mi cuenta?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="acc-panel" id="fa2" role="region" aria-labelledby="fq2"><div><p>Monni está en etapa previa al lanzamiento. Únete a la lista de espera y serás de los primeros en abrir tu cuenta desde el celular.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="fa3" id="fq3">¿Tiene Monni costos de mantenimiento mensuales?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="acc-panel" id="fa3" role="region" aria-labelledby="fq3"><div><p>La cuenta Start no tiene cuota de manejo. Las tarifas son transparentes desde el inicio y el cambio de moneda se hace a la tasa real del mercado.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="fa4" id="fq4">¿Cuánto tarda en llegar una transferencia internacional?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="acc-panel" id="fa4" role="region" aria-labelledby="fq4"><div><p>La mayoría de transferencias llegan en minutos. El tiempo exacto depende del país y la red de pago.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="fa5" id="fq5">¿Cómo funcionan las tarjetas virtuales de un solo uso?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="acc-panel" id="fa5" role="region" aria-labelledby="fq5"><div><p>Generas una tarjeta virtual desde la app para una compra o suscripción específica. Una vez usada, se desactiva automáticamente para reducir el riesgo de fraudes o cargos no deseados.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="fa6" id="fq6">¿Cómo protege Monni mi dinero y mis datos?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="acc-panel" id="fa6" role="region" aria-labelledby="fq6"><div><p>Usamos encriptación de nivel bancario, verificación en múltiples capas, acceso biométrico y monitoreo de cada transacción en tiempo real. Consulta los Términos y Condiciones para conocer la naturaleza de los servicios y sus riesgos.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CTA FINAL -->
+<section class="final" id="lista-espera" data-tone="lima" aria-labelledby="finalH">
+  <div class="wrap grid final-grid">
+    <div class="final-copy">
+      <h2 id="finalH">Sé de los primeros en tener tu cuenta global.</h2>
+      <p class="lead">Únete a la lista de espera para recibir dólares y euros, cambiar a la tasa real y pagar en todo el mundo.</p>
+      <a class="btn btn-ink" href="https://www.monni.global/#lista-espera">Unirme a la lista de espera <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="final-stage" aria-hidden="true">
+      <img class="final-scene" src="assets/img/scenes/final-pedestal-lima.webp" alt="" width="1600" height="1195" loading="lazy" decoding="async">
+      <div class="final-card final-card-ink"><img src="assets/img/cards/web/credito-signature-negra.webp" alt="" width="1200" height="758" loading="lazy" decoding="async"></div>
+      <div class="final-card"><img src="assets/img/cards/web/debito-verde.webp" alt="" width="1200" height="758" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 12 FOOTER -->
+<!-- footer:start -->
+<footer class="ftr" data-tone="ink">
+  <div class="ftr-wrap">
+    <div class="ftr-top">
+      <img class="ftr-mark" src="assets/logo/logo-white-transparent.png" alt="Monni" width="1024" height="1024" loading="lazy">
+      <div class="ftr-apps">
+        <a href="https://apps.apple.com/co/app/monni/id6786057674" rel="noopener"><img src="assets/badges/app-store-es.svg" alt="Descárgalo en el App Store" width="144" height="48" loading="lazy"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.monni.app" rel="noopener"><img src="assets/badges/google-play-es.png" alt="Descargar en Google Play" width="124" height="48" loading="lazy"></a>
+      </div>
+    </div>
+
+    <div class="ftr-cols">
+      <nav aria-label="Personas"><h4>Personas</h4>
+        <a href="cuenta.html">Cuenta Monni</a><a href="tarjeta.html">Tarjeta Monni</a><a href="https://www.monni.global/tarjeta-credito">Tarjeta de crédito</a><a href="https://www.monni.global/billetera">Planes</a><a href="https://www.monni.global/app">App Monni</a>
+      </nav>
+      <nav aria-label="Empresas"><h4>Empresas</h4>
+        <a href="empresas.html">Vender con Monni</a><a href="https://www.monni.global/empresas/pagos">API de pagos</a><a href="https://www.monni.global/empresas/cuentas">Cuentas globales</a><a href="https://www.monni.global/empresas/tesoreria">Tesorería</a><a href="https://www.monni.global/contacto">Soporte empresas</a>
+      </nav>
+      <nav aria-label="Ayuda"><h4>Ayuda</h4>
+        <a href="ayuda.html">Centro de ayuda</a><a href="https://www.monni.global/personal-banker">Personal Banker</a><a href="https://www.monni.global/contacto">Contacto</a><a href="https://www.monni.global/contacto">Peticiones y reclamos</a><a href="https://www.monni.global/blog">Blog</a>
+      </nav>
+      <nav aria-label="Legal"><h4>Legal</h4>
+        <a href="https://www.monni.global/terminos-y-condiciones">Términos y condiciones</a><a href="https://www.monni.global/politica-de-privacidad">Aviso de privacidad</a><a href="https://www.monni.global/actividades-prohibidas-tarjetas">Actividades prohibidas</a><a href="https://www.monni.global/legal/card-terms-consumer-international">Términos de la tarjeta</a><a href="https://www.monni.global/legal/card-terms-business-international">Términos de la tarjeta de empresa</a><a href="https://www.monni.global/legal/authorized-user-terms-business-international">Términos de usuario autorizado</a><a href="https://www.monni.global/legal/virtual-account-user-terms">Términos de la cuenta virtual</a>
+      </nav>
+      <div class="ftr-side">
+        <h4>Mercado</h4><p>Colombia</p>
+        <h4>Síguenos</h4>
+        <div class="ftr-soc">
+          <a href="https://www.instagram.com/monnibank/" aria-label="Instagram de Monni" rel="noopener"><img src="assets/icons/icon-instagram.svg" alt="" width="18" height="18"></a>
+          <a href="https://www.facebook.com/monnibank" aria-label="Facebook de Monni" rel="noopener"><img src="assets/icons/icon-facebook.svg" alt="" width="18" height="18"></a>
+          <a href="https://www.linkedin.com/company/monni-bank" aria-label="LinkedIn de Monni" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.9 8.6H3.6V20h3.3zM5.3 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.4 13.3c0-3.1-1.7-4.9-4.3-4.9-1.6 0-2.6.9-3 1.5V8.6H9.8V20h3.3v-5.9c0-1.5.5-2.6 1.9-2.6 1.4 0 1.8 1.1 1.8 2.6V20h3.3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ftr-legal">
+      <p>Monni Global - MONNI S.A.S NIT 901.980.690-4. 2026. Todos los derechos reservados. Algunos productos pueden estar sujetos a aprobación, disponibilidad y términos específicos.</p>
+      <p>MONNI S.A.S. (“Monni Colombia”) (i) no presta ni ofrece servicios financieros ni lleva a cabo ningún tipo de actividad propia de las entidades financieras que requieren autorización para su funcionamiento, (ii) no realiza actividades de captación de dinero conforme con la normativa colombiana. Los activos digitales disponibles en los servicios ofrecidos por Monni Colombia no son reconocidos como moneda de curso legal conforme con la normativa colombiana. Al utilizar los servicios de Monni Colombia, los usuarios reconocen expresamente que conocen las particularidades y los riesgos asociados a los mismos según se establece en los Términos y Condiciones disponibles en esta página web.</p>
+      <p>Los activos virtuales no son moneda de curso legal en Colombia e implican riesgos. Todos los pagos entrantes se convertirán automáticamente a USDc o EURc (activos virtuales).</p>
+    </div>
+  </div>
+</footer>
+<!-- footer:end -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/v2-ui.js" defer></script>
+<script src="assets/js/v2-motion.js" defer></script>
+</body>
+</html>

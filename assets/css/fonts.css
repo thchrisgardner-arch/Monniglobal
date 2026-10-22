@@ -1,0 +1,4 @@
+/* Monni webfonts.
+   Outfit y Geist se sirven desde Google Fonts (no se entregaron archivos de fuente).
+   Si tienes los binarios oficiales, reemplaza este import por reglas @font-face locales. */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&family=Geist:wght@300;400;500;600;700&display=swap");

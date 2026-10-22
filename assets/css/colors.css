@@ -1,0 +1,48 @@
+:root{
+  /* Marca */
+  --monni-ink:#000000;
+  --monni-lima:#C2FB17;
+  --monni-morado:#8F58F2;
+  --monni-crema:#EDF0DA;
+  --monni-white:#FFFFFF;
+
+  /* Neutros y superficies */
+  --monni-surface:#FDFDFD;
+  --monni-bg:#F7F6F3;
+  --monni-border:#E7E5DF;
+  --monni-muted:#84806F;
+  --monni-ink-80:#2A2A2A;
+  --monni-lima-10:#E9F9C4;
+  --monni-morado-10:#EBE1FB;
+
+  /* Semánticos — solo resultado de una operación, nunca decorativos */
+  --monni-success:#3CCB6F;
+  --monni-alert:#C94F4F;
+  --monni-warn:#B8860B;
+  --monni-info:#8F58F2;
+  --monni-critical:#B3261E;
+  --monni-critical-bg:#FBE1DF;
+  --monni-success-bg:#DFF5E3;
+
+  /* Alias semánticos */
+  --text-primary:#151515;
+  --text-muted:var(--monni-muted);
+  --text-inverse:var(--monni-white);
+  --text-on-lima:var(--monni-ink);
+
+  --surface-page:var(--monni-bg);
+  --surface-card:var(--monni-white);
+  --surface-raised:var(--monni-surface);
+  --surface-accent:var(--monni-crema);
+  --surface-inverse:var(--monni-ink);
+
+  --border-default:var(--monni-border);
+  --border-strong:var(--monni-ink);
+
+  --action-primary-bg:var(--monni-lima);
+  --action-primary-fg:var(--monni-ink);
+  --action-secondary-bg:var(--monni-ink);
+  --action-secondary-fg:var(--monni-white);
+  --action-enterprise-bg:var(--monni-morado);
+  --action-enterprise-fg:var(--monni-white);
+}

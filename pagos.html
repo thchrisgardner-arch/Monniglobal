@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagos y API — Monni</title><meta name="description" content="Pagos Monni y API.">
+<link rel="stylesheet" href="assets/css/home.css"><link rel="stylesheet" href="assets/css/pages.css"><link rel="stylesheet" href="assets/css/footer.css">
+</head><body>
+<header id="hdr"><div class="wrap nav"><a class="logo" href="index.html" aria-label="Monni"><img src="assets/logo/logo-white-transparent.png" alt="Monni"></a>
+<nav class="nav-links" aria-label="Principal"><a href="personas.html">Personas</a><a href="empresas.html">Empresas</a><a href="cuenta.html">Cuenta</a><a href="tarjeta.html">Tarjeta</a><a href="pagos.html" class="cur">Pagos</a><a href="ayuda.html">Recursos</a></nav>
+<div class="nav-r"><a class="login" href="#">Iniciar sesión</a><a class="btn btn-lima sm" href="index.html#lista">Unirme a la lista</a><button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button></div></div></header>
+<div class="drawer" id="drawer"><a href="personas.html">Personas</a><a href="empresas.html">Empresas</a><a href="cuenta.html">Cuenta</a><a href="tarjeta.html">Tarjeta</a><a href="pagos.html" class="cur">Pagos</a><a href="ayuda.html">Recursos</a><a href="index.html#lista" class="btn btn-lima">Unirme a la lista</a></div>
+<main id="main">
+<section class="pg-hero dark"><div class="wrap"><h1>Elige cómo pagar, o integra pagos.</h1><p class="sub">Tarjeta, pagos digitales y una API para construir sobre Monni.</p><div class="hero-cta"><a class="btn btn-lima" href="index.html#lista">Unirme a la lista</a><a class="btn btn-ghost" href="#formas">Descubrir</a></div><div class="pg-tabs"><a href="#formas">Formas de pago</a><a href="#api">API</a></div></div></section>
+<section class="light" id="formas"><div class="wrap show">
+  <div class="show-t reveal"><h2>Elige cómo pagar</h2><p class="sub">Tarjeta física, tarjeta virtual y pagos digitales: un solo saldo.</p><div class="hero-cta"><a class="btn btn-ink" href="index.html#lista">Unirme a la lista</a></div></div>
+  <div class="reveal"><div class="stage" role="group" aria-roledescription="carrusel" aria-label="Pagos"><div class="sl sl-card"><img class="cv" src="assets/img/cards/web/debito-verde.webp" alt="Tarjeta Monni" loading="lazy" decoding="async"><span class="smol" style="margin-top:26px">Paga con tu tarjeta</span></div><div class="sl"><img class="bgi" src="assets/img/hero-main.png" alt="" loading="lazy" decoding="async"><span class="chip-t">Virtual</span><b class="big">En línea</b><span class="smol">Compras digitales</span></div><div class="sl sl-ui"><div class="phone"><div class="screen"><div class="scr on"><div class="lbl">Pagar</div><div class="amt">$38.000</div><div class="row"><span class="cur"><i class="dotc di"><img src="assets/icons3d/telefono.webp" alt="" width="22" height="22"></i>Pagar</span><b>Un toque</b></div><div class="row"><span class="cur"><i class="dotc di"><img src="assets/icons3d/cambio.webp" alt="" width="22" height="22"></i>Moneda</span><b>Tú eliges</b></div><div class="row"><span class="cur"><i class="dotc di"><img src="assets/icons3d/documento-check.webp" alt="" width="22" height="22"></i>Confirmar</span><b>Listo</b></div><div class="pill">Pagar</div></div></div></div></div></div>
+  <div class="tl" role="tablist" style="--d:5.5s"><button class="tl-b" aria-label="Ver imagen 1: Tarjeta" data-cap="Tarjeta"><i></i></button><button class="tl-b" aria-label="Ver imagen 2: Virtual" data-cap="Virtual"><i></i></button><button class="tl-b" aria-label="Ver imagen 3: Desde la app" data-cap="Desde la app"><i></i></button></div><div class="tl-cap" aria-live="off"></div></div>
+  </div></section>
+<section class="dark" id="api"><div class="wrap two"><div class="reveal"><h2>Construye pagos globales.</h2><p class="sub">Crea pagos y recibe eventos con una API pensada para equipos de producto.</p><div class="hero-cta"><a class="btn btn-lima" href="index.html#lista">Hablar con Monni</a></div></div><pre class="code reveal" aria-label="Ejemplo de código">const payout = await monni.payouts.create({
+  amount: 1200,
+  currency: "USD",
+  idempotency_key: "ord_8f3a"
+});
+
+// webhook
+payout.completed</pre></div></section>
+<section class="light"><div class="wrap"><h2>Lo que más nos preguntan.</h2><div class="faq"><details><summary>¿Tienen API?<i>+</i></summary><p>Sí. El ejemplo es ilustrativo; la documentación se compartirá con el acceso.</p></details><details><summary>¿Cuándo estará disponible?<i>+</i></summary><p>Monni está en lista de espera. Únete y te avisamos cuando tu acceso esté disponible.</p></details></div></div></section>
+<section class="dark"><div class="wrap"><div class="next"><a class="nx" href="empresas.html"><small>Empresas</small><b>Para empresas</b><p>Cuentas globales y tesorería.</p><span>Ver más →</span></a><a class="nx" href="tarjeta.html"><small>Tarjeta</small><b>Tarjeta Monni</b><p>Paga aquí y allá.</p><span>Ver más →</span></a><a class="nx" href="seguridad.html"><small>Seguridad</small><b>Seguridad inteligente</b><p>Controla tus movimientos.</p><span>Ver más →</span></a></div></div></section>
+<section class="dark cta-band"><div class="wrap"><h2>Tu dinero, sin fronteras.</h2><p class="sub" style="margin:20px auto 0">Monni está en lista de espera. Únete y te avisamos cuando tu acceso esté disponible.</p><div class="hero-cta" style="margin-top:30px"><a class="btn btn-lima" href="index.html#lista">Unirme a la lista</a></div></div></section>
+</main>
+<footer class="ftr" data-tone="ink">
+  <div class="ftr-wrap">
+    <div class="ftr-top">
+      <img class="ftr-mark" src="assets/logo/logo-white-transparent.png" alt="Monni" width="1024" height="1024" loading="lazy">
+      <div class="ftr-apps">
+        <a href="https://apps.apple.com/co/app/monni/id6786057674" rel="noopener"><img src="assets/badges/app-store-es.svg" alt="Descárgalo en el App Store" width="144" height="48" loading="lazy"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.monni.app" rel="noopener"><img src="assets/badges/google-play-es.png" alt="Descargar en Google Play" width="124" height="48" loading="lazy"></a>
+      </div>
+    </div>
+
+    <div class="ftr-cols">
+      <nav aria-label="Personas"><h4>Personas</h4>
+        <a href="cuenta.html">Cuenta Monni</a><a href="tarjeta.html">Tarjeta Monni</a><a href="https://www.monni.global/tarjeta-credito">Tarjeta de crédito</a><a href="https://www.monni.global/billetera">Planes</a><a href="https://www.monni.global/app">App Monni</a>
+      </nav>
+      <nav aria-label="Empresas"><h4>Empresas</h4>
+        <a href="empresas.html">Vender con Monni</a><a href="https://www.monni.global/empresas/pagos">API de pagos</a><a href="https://www.monni.global/empresas/cuentas">Cuentas globales</a><a href="https://www.monni.global/empresas/tesoreria">Tesorería</a><a href="https://www.monni.global/contacto">Soporte empresas</a>
+      </nav>
+      <nav aria-label="Ayuda"><h4>Ayuda</h4>
+        <a href="ayuda.html">Centro de ayuda</a><a href="https://www.monni.global/personal-banker">Personal Banker</a><a href="https://www.monni.global/contacto">Contacto</a><a href="https://www.monni.global/contacto">Peticiones y reclamos</a><a href="https://www.monni.global/blog">Blog</a>
+      </nav>
+      <nav aria-label="Legal"><h4>Legal</h4>
+        <a href="https://www.monni.global/terminos-y-condiciones">Términos y condiciones</a><a href="https://www.monni.global/politica-de-privacidad">Aviso de privacidad</a><a href="https://www.monni.global/actividades-prohibidas-tarjetas">Actividades prohibidas</a><a href="https://www.monni.global/legal/card-terms-consumer-international">Términos de la tarjeta</a><a href="https://www.monni.global/legal/card-terms-business-international">Términos de la tarjeta de empresa</a><a href="https://www.monni.global/legal/authorized-user-terms-business-international">Términos de usuario autorizado</a><a href="https://www.monni.global/legal/virtual-account-user-terms">Términos de la cuenta virtual</a>
+      </nav>
+      <div class="ftr-side">
+        <h4>Mercado</h4><p>Colombia</p>
+        <h4>Síguenos</h4>
+        <div class="ftr-soc">
+          <a href="https://www.instagram.com/monnibank/" aria-label="Instagram de Monni" rel="noopener"><img src="assets/icons/icon-instagram.svg" alt="" width="18" height="18"></a>
+          <a href="https://www.facebook.com/monnibank" aria-label="Facebook de Monni" rel="noopener"><img src="assets/icons/icon-facebook.svg" alt="" width="18" height="18"></a>
+          <a href="https://www.linkedin.com/company/monni-bank" aria-label="LinkedIn de Monni" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.9 8.6H3.6V20h3.3zM5.3 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.4 13.3c0-3.1-1.7-4.9-4.3-4.9-1.6 0-2.6.9-3 1.5V8.6H9.8V20h3.3v-5.9c0-1.5.5-2.6 1.9-2.6 1.4 0 1.8 1.1 1.8 2.6V20h3.3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ftr-legal">
+      <p>Monni Global - MONNI S.A.S NIT 901.980.690-4. 2026. Todos los derechos reservados. Algunos productos pueden estar sujetos a aprobación, disponibilidad y términos específicos.</p>
+      <p>MONNI S.A.S. (“Monni Colombia”) (i) no presta ni ofrece servicios financieros ni lleva a cabo ningún tipo de actividad propia de las entidades financieras que requieren autorización para su funcionamiento, (ii) no realiza actividades de captación de dinero conforme con la normativa colombiana. Los activos digitales disponibles en los servicios ofrecidos por Monni Colombia no son reconocidos como moneda de curso legal conforme con la normativa colombiana. Al utilizar los servicios de Monni Colombia, los usuarios reconocen expresamente que conocen las particularidades y los riesgos asociados a los mismos según se establece en los Términos y Condiciones disponibles en esta página web.</p>
+      <p>Los activos virtuales no son moneda de curso legal en Colombia e implican riesgos. Todos los pagos entrantes se convertirán automáticamente a USDc o EURc (activos virtuales).</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/pages.js"></script></body></html>
